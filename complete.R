@@ -1,6 +1,5 @@
 complete <- function(directory, id = 1:332){
  
-  
   output <- data.frame()
   ## loop for att ga igenom filerna
   for(i in id){
@@ -10,11 +9,13 @@ complete <- function(directory, id = 1:332){
     
     ## satter fil
     file_data <- read.csv(filename)
-    print(filename)
+    ## print(filename)
+    completed_cases <- sum(complete.cases(file_data))
     
     ## skickar till dataframe
     output <- rbind(output, data.frame(id=i,nobs=completed_cases))
     
-    }
+  }
   
+  output
 }
